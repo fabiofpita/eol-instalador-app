@@ -1,0 +1,46 @@
+<section class="hero is-title">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-one-fifth">
+                <figure class="image is-128x128">
+                    <img src="../assets/logo.png" />
+                </figure>
+            </div>
+            <div class="column">
+                <h1 class="title">
+                    EOL - Sistema de Instaladores
+                </h1>
+                <h2 class="subtitle">
+                    Consulte e assuma Ordens de Serviço!
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <h3 class="subtitle">
+        Ordens de Serviço em aberto
+    </h3>
+    <div class="box" *ngFor="let item of ordens">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    {{item.title}}
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content">
+                    Plano: x. Endereço: X
+                    <br>
+                    Data Solicitação:
+                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <a href="#" class="card-footer-item">Assumir OS</a>
+                <a href="#" class="card-footer-item">Finalizar</a>
+            </footer>
+        </div>
+    </div>
+</section>
