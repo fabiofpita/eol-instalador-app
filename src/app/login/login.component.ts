@@ -49,25 +49,15 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loading = true;
-    // this.authenticationService.login(this.f.username.value, this.f.password.value)
-    //   .subscribe(
-    //     data => {
-    //       this.router.navigate([this.returnUrl]);
-    //     },
-    //     error => {
-    //       this.alertService.error(error);
-    //       this.loading = false;
-    //     });
-
-    setTimeout(() => {
-      this.alertService.success("Logado com sucesso");
-      // setTimeout(() => {
-      //   this.loading = false;
-      //   this.router.navigate([this.returnUrl]);
-      // }, 1000);
-
-    }, 2000);
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+        });
   }
 
 }

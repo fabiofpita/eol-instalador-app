@@ -13,7 +13,7 @@ export class NeedAuthGuard implements CanActivate {
 
         const redirectUrl = route['_routerState']['url'];
 
-        if (true || this.instaladorService.isLogged()) {
+        if (this.instaladorService.isLogged()) {
             return true;
         }
 

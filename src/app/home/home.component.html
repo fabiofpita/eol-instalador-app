@@ -14,6 +14,9 @@
                     Consulte e assuma Ordens de Serviço!
                 </h2>
             </div>
+            <div>
+                <button class="button" (click)="logout()">Logout</button>
+            </div>
         </div>
     </div>
 </section>
@@ -26,15 +29,16 @@
         <div class="card">
             <header class="card-header">
                 <p class="card-header-title">
-                    {{item.title}}
+                    <b>{{item.client.name}} {{item.client.lastName}}</b>
                 </p>
             </header>
             <div class="card-content">
                 <div class="content">
-                    Plano: x. Endereço: X
+                    <b>Plano:</b> {{item.plan}}
+                    <br />
+                    <b>Endereço:</b> {{item.client.location.address}}
                     <br>
-                    Data Solicitação:
-                    <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                    <b>Data Solicitação:</b> {{item.creationDateFormated}}
                 </div>
             </div>
             <footer class="card-footer">
