@@ -25,13 +25,19 @@
     <h3 class="subtitle">
         Ordens de Serviço em aberto
     </h3>
-    <div class="box" *ngFor="let item of ordens">
+    <div class="box" *ngFor="let item of screenOrdens">
         <div class="card">
-            <header class="card-header">
-                <p class="card-header-title">
-                    <b>{{item.client.name}} {{item.client.lastName}}</b>
-                </p>
-            </header>
+            <div class="card-header">
+                <div class="column is-four-fifths">
+                    <p class="card-header-title">
+                        <b>{{item.client.name}} {{item.client.lastName}}</b>
+                    </p>
+                </div>
+                <div *ngIf="item.attributionDate" class="column atribuido">
+                    Atribuído
+                </div>
+            </div>
+
             <div class="card-content">
                 <div class="content">
                     <b>Plano:</b> {{item.plan}}
@@ -42,8 +48,10 @@
                 </div>
             </div>
             <footer class="card-footer">
-                <a href="#" class="card-footer-item">Assumir OS</a>
-                <a href="#" class="card-footer-item">Finalizar</a>
+                <button *ngIf="!item.attributionDate" (click)="openModal(item, false)"
+                    class="card-footer-item botao-assumir">Assumir OS</button>
+                <button *ngIf="item.attributionDate" (click)="openModal(item, true)"
+                    class="card-footer-item botao-finalizar">Finalizar</button>
             </footer>
         </div>
     </div>

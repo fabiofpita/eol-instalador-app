@@ -101,4 +101,27 @@ export class ApiService {
 
         return this.http.post<ApiReturn>(url, requestParameter, options);
     }
+
+    saveOrder(order: ServiceOrder) {
+        const url = `${apiUrl}/saveOrder`;
+
+
+        let httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, PUT, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+        });
+
+        let options = {
+            headers: httpHeaders
+        };
+
+        let requestParameter: ApiParameter = {
+            order: order
+        }
+
+        return this.http.post<ServiceOrder>(url, requestParameter, options);
+    }
 }
